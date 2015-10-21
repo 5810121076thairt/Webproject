@@ -1,0 +1,22 @@
+{
+  "name": "WebProject",
+  "version": "0.0.0",
+  "homepage": "https://github.com/5810121076thairt/Webproject",
+  "authors": [
+    "5810121065-Manida"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.14.2",
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}
