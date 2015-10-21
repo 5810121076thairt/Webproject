@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
   <head>
   	<meta charset="utf-8">
-  	<title>My HTML File</title>
+  	<title>Fitness</title>
   	<script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
@@ -10,17 +10,82 @@
     <script type="text/javascript" src="js/controller.js"></script>
   </head>
   <body >
-	
-    <div ng-controller="AvengersCtrl">
-        <input type="text" ng-model="search.$" />
-        <table>
-            <tr ng-repeat="actor in avengers.cast | filter:search">
-                <td>{{actor.name}}</td>
-                <td>{{actor.character}}</td>
-            </tr>
-        </table>
-    </div>
 
+    <div class="container">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Fitness</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Leg Extension</a></li>
+              <li><a href="#">Abductor</a></li>
+              <li><a href="#">Multi-Hip</a></li>
+            </ul>
+           
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4><span class="glyphicon glyphicon-modal-window" ></span> Leg Extension</h4>
+          </div>
+          <div class="panel-body" ng-controller="LegsCtrl">
+
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="exampleInputName2">Trainee ID: </label>
+                <input type="text" class="form-control" ng-model="search.trainerId" >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail2">Week: </label>
+                <input type="text" class="form-control" ng-model="search.Week" >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail2">Set: </label>
+                <input type="text" class="form-control" ng-model="search.Set" >
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail2">Time: </label>
+                <input type="text" class="form-control" ng-model="search.Time" >
+              </div>
+            </form>
+            <hr>
+            <table class="table table-hover">
+                <thead>
+                    <th class="col-md-2">Trainee ID</th>
+                    <th>Date & Time</th>
+                    <th>Week</th>
+                    <th>Set</th>
+                    <th>Time</th>
+                    <th>Measurement (Torque)</th>
+                </thead>
+                <tr ng-repeat="leg in legs.cast | filter:search">
+                    <td>{{leg.trainerId}}</td>
+                    <td>{{leg.DateTime | date: 'short'}}</td>
+                    <td>{{leg.Week}}</td>
+                    <td>{{leg.Set}}</td>
+                    <td>{{leg.Time}}</td>
+                    <td>{{leg.Measurement}}</td>
+                </tr>
+            </table>
+            </div>
+          </div>
+        </div>
+    </div> <!-- /container -->
+    
+    
   </body>
 <html>
 </html>
