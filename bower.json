@@ -17,6 +17,8 @@
   "dependencies": {
     "angular-bootstrap": "~0.14.2",
     "angular": "~1.4.7",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "angular-chart.js": "~0.8.5",
+    "angular-fusioncharts": "~0.0.2"
   }
 }

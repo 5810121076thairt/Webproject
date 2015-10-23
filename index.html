@@ -7,11 +7,14 @@
     <script src="bower_components/angular/angular.js"></script>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/Chart.js/Chart.min.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
     <script type="text/javascript" src="js/controller.js"></script>
   </head>
   <body >
 
-    <div class="container">
+    <div class="container" ng-controller="LegsCtrl">
 
       <!-- Static navbar -->
       <nav class="navbar navbar-inverse">
@@ -41,7 +44,7 @@
           <div class="panel-heading">
             <h4><span class="glyphicon glyphicon-modal-window" ></span> Leg Extension</h4>
           </div>
-          <div class="panel-body" ng-controller="LegsCtrl">
+          <div class="panel-body" >
 
             <form class="form-inline">
               <div class="form-group">
@@ -71,7 +74,7 @@
                     <th>Time</th>
                     <th>Measurement (Torque)</th>
                 </thead>
-                <tr ng-repeat="leg in legs.cast | filter:search">
+                <tr ng-repeat="leg in legs.cast | filter:search | orderBy:'trainerId'">
                     <td>{{leg.trainerId}}</td>
                     <td>{{leg.DateTime | date: 'short'}}</td>
                     <td>{{leg.Week}}</td>
@@ -80,8 +83,38 @@
                     <td>{{leg.Measurement}}</td>
                 </tr>
             </table>
+
+            
             </div>
           </div>
+          <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4><span class="glyphicon glyphicon-modal-window" ></span> Monitoring System</h4>
+          </div>
+          <div class="panel-body" >
+          <div class="col-md-8 col-md-offset-2">
+              <form class="form-inline">
+              <div class="form-group">
+                <label for="exampleInputName2">Summary By: </label>
+                <select class="form-control" ng-model="summary" ng-change="summaryBy()">
+                  <option>Trainee ID</option>
+                  <option>Week</option>
+                </select>
+              </div>
+              </form>
+              <div ng-show="type1">
+              <canvas id="line" class="chart chart-line" chart-data="set"
+                chart-labels="labels" chart-legend="true" chart-series="series" >
+              </canvas> 
+            </div>
+            <div ng-show="type2">
+              <canvas id="line" class="chart chart-bar" chart-data="set"
+                chart-labels="labels" chart-legend="true" chart-series="series" >
+              </canvas>
+            </div>
+          </div>
+          </div>
+        </div>
         </div>
     </div> <!-- /container -->
     
