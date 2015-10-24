@@ -32,7 +32,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.html">Leg Extension</a></li>
               <li><a href="Abductor.html">Abductor</a></li>
-              <li><a href="Multi.html">Multi-Hip</a></li>
+              <li><a href="Multi-Hip.html">Multi-Hip</a></li>
             </ul>
            
           </div><!--/.nav-collapse -->
