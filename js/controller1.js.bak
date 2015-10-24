@@ -168,7 +168,7 @@ myApp.factory('Legs', function () {
     return Legs;
 })
 
-.controller('LegsCtrl', function($scope,Legs) {
+.controller1('LegsCtrl', function($scope,Legs) {
 
          $scope.legs = Legs;
          $scope.set = [];
